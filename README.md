@@ -14,7 +14,7 @@ separately. It is assumed that files containing credentials are stored in the ~/
 Role Variables
 --------------
 
-Variables are managed in the opdk-setup-default-settings role. 
+Variables are managed in the apigee-opdk-setup-default-settings role. 
 
 JDK Version to install
 
@@ -25,14 +25,14 @@ Dependencies
 
 This role depends on the following roles: 
 
-* opdk-setup-default-settings 
+* apigee-opdk-setup-default-settings 
 
 Example Playbook
 ----------------
 
     - hosts: servers
       roles:
-         - { role: opdk-setup-openjdk }
+         - { role: apigee-opdk-setup-openjdk }
 
 License
 -------
