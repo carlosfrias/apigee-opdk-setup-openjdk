@@ -1,6 +1,6 @@
 ---
-- name: Install Java JDK
+- name: Install Java JDK with no proxy
   become: yes
   yum:
-    name: "java-{{ jdk_version }}.0-openjdk-devel"
+    name: "java-{{ jdk_version }}.0-openjdk-devel.x86_64"
     state: present
