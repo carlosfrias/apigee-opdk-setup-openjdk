@@ -1,0 +1,6 @@
+---
+- name: Install Java JDK
+  become: yes
+  yum:
+    name: "java-{{ jdk_version }}.0-openjdk-devel"
+    state: present

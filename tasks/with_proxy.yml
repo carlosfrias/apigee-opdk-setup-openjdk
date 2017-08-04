@@ -1,0 +1,10 @@
+---
+- name: Install Java JDK
+  become: yes
+  yum:
+    name: "java-{{ jdk_version }}.0-openjdk-devel"
+    state: present
+  environment:
+    http_proxy: "{{ http_proxy }}"
+    https_proxy: "{{ https_proxy }}"
+

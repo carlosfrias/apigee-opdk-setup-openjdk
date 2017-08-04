@@ -1,9 +1,10 @@
 ---
-- name: Install Java JDK
-  become: yes
-  yum:
-    name: "java-{{ jdk_version }}.0-openjdk-devel"
-    state: present
+- include: with_no_proxy.yml
+  when: http_proxy is not defined and https_proxy is not defined
+
+- include: with_proxy.yml
+  when: http_proxy is defined and https_proxy is defined
+
 
 - name: Update environment with path to JAVA_HOME
   become: yes
