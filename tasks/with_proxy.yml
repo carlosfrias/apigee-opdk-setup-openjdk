@@ -1,11 +1,24 @@
 ---
-- name: Install Java JDK with proxy
-  become: yes
-  yum:
-    name: "java-{{ jdk_version }}.0-openjdk-devel.x86_64"
-    state: present
-  environment:
-    http_proxy: "{{ http_proxy }}"
-    https_proxy: "{{ https_proxy }}"
-    no_proxy: "{{ no_proxy }}"
+- block:
+
+  - name: Install Java JDK with proxy
+    become: yes
+    yum:
+      name: "java-{{ jdk_version }}.0-openjdk-devel.{{ ansible_architecture }}"
+      state: present
+    environment:
+      http_proxy: "{{ http_proxy }}"
+      https_proxy: "{{ https_proxy }}"
+      no_proxy: "{{ no_proxy }}"
+
+  rescue:
+    - name: Install Java JDK with proxy
+      become: yes
+      yum:
+        name: "java-{{ jdk_version }}.0-openjdk-devel"
+        state: present
+      environment:
+        http_proxy: "{{ http_proxy }}"
+        https_proxy: "{{ https_proxy }}"
+        no_proxy: "{{ no_proxy }}"
 
