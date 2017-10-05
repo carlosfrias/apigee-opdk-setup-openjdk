@@ -6,10 +6,12 @@
     yum:
       name: "java-{{ jdk_version }}.0-openjdk-devel.{{ ansible_architecture }}"
       state: present
+      disable_gpg_check: yes
 
   rescue:
     - name: Install Java JDK with no proxy
       become: yes
       yum:
         name: "java-{{ jdk_version }}.0-openjdk-devel"
+        disable_gpg_check: yes
         state: present

@@ -6,6 +6,7 @@
     yum:
       name: "java-{{ jdk_version }}.0-openjdk-devel.{{ ansible_architecture }}"
       state: present
+      disable_gpg_check: yes
     environment:
       http_proxy: "{{ http_proxy }}"
       https_proxy: "{{ https_proxy }}"
@@ -17,6 +18,7 @@
       yum:
         name: "java-{{ jdk_version }}.0-openjdk-devel"
         state: present
+        disable_gpg_check: yes
       environment:
         http_proxy: "{{ http_proxy }}"
         https_proxy: "{{ https_proxy }}"
