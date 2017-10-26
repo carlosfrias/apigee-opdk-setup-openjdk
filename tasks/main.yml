@@ -1,10 +1,17 @@
 ---
+- name: Update cache with key and value
+  cache:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+  - { key: "jdk_version", value: "{{ jdk_version }}" }
+  - { key: 'java_home', value: '{{ java_home }}' }
+
 - include: with_no_proxy.yml
   when: (https_proxy is not defined or https_proxy | trim == '') and (http_proxy is not defined or http_proxy | trim == '')
 
 - include: with_proxy.yml
   when: https_proxy is defined and https_proxy | trim != '' and http_proxy is defined and http_proxy | trim != ''
-
 
 - name: Update environment with path to JAVA_HOME
   become: yes
