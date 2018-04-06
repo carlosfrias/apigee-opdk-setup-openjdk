@@ -6,9 +6,7 @@ users. This role manages setting up either 1.7 or 1.8.
 
 Requirements
 ------------
-The installation of Apigee OPDK requires root access. Credentials must also be supplied to override the empty placeholders
-provided here. It is recommended that credentials be consolidated into a single credentials.yml file that can be stored 
-separately. It is assumed that files containing credentials are stored in the ~/.apigee folder. 
+This role requires elevated system privilege.
 
 
 Role Variables
@@ -19,6 +17,11 @@ Variables are managed in the apigee-opdk-setup-default-settings role.
 JDK Version to install
 
     jdk_version: '1.8'
+    
+Location of JAVA_HOME set in the environment: 
+
+    java_home: /usr/lib/jvm/java-openjdk
+    
 
 Dependencies
 ------------
