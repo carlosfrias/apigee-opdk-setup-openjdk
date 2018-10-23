@@ -17,9 +17,9 @@
       state: present
       disable_gpg_check: yes
     environment:
-      http_proxy: "{{ http_proxy }}"
-      https_proxy: "{{ https_proxy }}"
-      no_proxy: "{{ no_proxy }}"
+      http_proxy: "{{ http_proxy | default('') }}"
+      https_proxy: "{{ https_proxy | default('') }}"
+      no_proxy: "{{ no_proxy | default('') }}"
 
   rescue:
     - name: Install Java JDK with proxy
@@ -29,9 +29,9 @@
         state: present
         disable_gpg_check: yes
       environment:
-        http_proxy: "{{ http_proxy }}"
-        https_proxy: "{{ https_proxy }}"
-        no_proxy: "{{ no_proxy }}"
+        http_proxy: "{{ http_proxy | default('') }}"
+        https_proxy: "{{ https_proxy | default('') }}"
+        no_proxy: "{{ no_proxy | default('') }}"
 
 - name: Update environment with path to JAVA_HOME
   become: yes
