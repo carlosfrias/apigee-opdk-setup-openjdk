@@ -1,12 +1,10 @@
 ---
 - name: Update cache with key and value
   tags: ['cache']
-  cache:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-  with_items:
-  - { key: "jdk_version", value: "{{ jdk_version }}" }
-  - { key: 'java_home', value: '{{ java_home }}' }
+  set_fact:
+    cacheable: yes
+    jdk_version: "{{ jdk_version }}"
+    java_home: '{{ java_home }}'
 
 - block:
 
