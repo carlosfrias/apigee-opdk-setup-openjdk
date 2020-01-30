@@ -1,6 +1,5 @@
 ---
 - name: Update cache with key and value
-  tags: ['cache']
   set_fact:
     cacheable: yes
     jdk_version: "{{ jdk_version }}"
